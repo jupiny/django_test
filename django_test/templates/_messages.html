@@ -1,0 +1,6 @@
+{% if messages %}
+    {% for message in messages %}
+        <input type="hidden" class="message" value="{{ message }}">
+        <input type="hidden" class="message-tags" value="{{ message.tags }}">
+    {% endfor %}
+{% endif %}

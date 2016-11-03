@@ -1,0 +1,20 @@
+{% extends "posts/base_posts.html" %}
+{% load staticfiles %}
+{% block title %}Post Update{% endblock title %}
+{% block content %}
+<h2 class="posts-title">Post Update</h2>
+<form action="{% url "posts:update" pk=post.id %}" method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+{% for field in form %}
+  {{ field.label_tag }}<br>
+  {{ field }}<br>
+  {% if form.errors %}
+    {% for error in field.errors %}
+      <input type="hidden" class="message" value="{{ error }}">
+      <input type="hidden" class="message-tags" value="danger">
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+<input type="submit" value="Save" />
+</form>
+{% endblock content %}

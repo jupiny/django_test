@@ -1,0 +1,11 @@
+<h1>Header</h1>
+<ul>
+    <li><a href="{% url "home" %}">Home</a></li>
+    {% if request.user.is_authenticated %} 
+    <li><a href="{% url "users:signout" %}">Signout</a></li>
+    {% else %}
+    <li><a href="{% url "users:signup" %}">Signup</a></li>
+    <li><a href="{% url "users:signin" %}">Signin</a></li>
+    {% endif %}
+    <li><a href="{% url "posts:list" %}">Posts</a></li>
+</ul>

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block title %}Home{% endblock title %}
+{% block stylesheets %}
+{{ block.super }}
+<link rel="stylesheet" href={% static "css/home.css" %}>
+{% endblock stylesheets %}
+{% block content %}
+<h2 class="home-title">{{ title }}</h2>
+{% endblock content %}
+{% block custom_javacripts %}
+{% endblock custom_javacripts %}

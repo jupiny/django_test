@@ -1,0 +1,14 @@
+{% extends "posts/base_posts.html" %}
+{% load staticfiles %}
+{% block title %}Posts{% endblock title %}
+{% block content %}
+<h2 class="posts-title">Posts</h2>
+<a href="{% url "posts:create" %}">Create</a><br>
+{% for post in posts %}
+<a href="{% url "posts:detail" pk=post.id %}"><h4>Title: {{ post.title }}</h4></a>
+<p>Author: {{ post.user.email }}</p>
+<p>Content: {{ post.content}}</p>
+<img src="{{ post.get_image_url }}" alt="" width="350px">
+<br>
+{% endfor %}
+{% endblock content %}
